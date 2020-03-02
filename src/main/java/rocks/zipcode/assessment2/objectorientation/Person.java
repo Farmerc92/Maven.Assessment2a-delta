@@ -53,11 +53,23 @@ public class Person {
     @Override
     public boolean equals(Object o) {
         if (o instanceof Person){
-            if ((this.address == ((Person) o).address) && (this.name == ((Person) o).name) && (this.id == ((Person) o).id)){
-                return true;
+            if (this.getName() != null && ((Person) o).getName() != null) {
+                if (!this.getName().equals(((Person) o).getName())) {
+                    return false;
+                }
+            }
+            if (this.address != null && ((Person) o).getAddress() != null) {
+                if (!this.getAddress().equals(((Person) o).getAddress())) {
+                    return false;
+                }
+            }
+            if (this.id != null && ((Person) o).getId() != null) {
+                if (!this.getId().equals(((Person) o).getId())) {
+                    return false;
+                }
             }
         }
-        return false;
+        return true;
     }
 
     @Override
